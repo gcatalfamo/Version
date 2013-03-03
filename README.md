@@ -52,7 +52,7 @@ The plugin creates the object `window.plugins.version`.  To use, call one of the
 
 ## RELEASE NOTES ##
 
-# March 3nd, 2012 #
+### March 3nd, 2012 ###
 
 * Initial release
 
