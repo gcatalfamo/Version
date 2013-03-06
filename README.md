@@ -11,11 +11,9 @@ Using this plugin requires [Android PhoneGap](http://github.com/phonegap/phonega
     &lt;script type="text/javascript" charset="utf-8" src="phonegap.js"&gt;&lt;/script&gt;<br/>
     &lt;script type="text/javascript" charset="utf-8" src="version.js"&gt;&lt;/script&gt;
     
-2. Copy the image files folder www/version to your project's www folder. Note you need the entire folder not just the images.
+2. Create a directory within your project called "src/com/phonegap/plugins/" and move Version.java into it.
 
-3. Create a directory within your project called "src/com/phonegap/plugins/" and move Version.java into it.
-
-4. In your res/xml/plugins.xml file add the following line:
+3. In your res/xml/plugins.xml file add the following line:
 
     &lt;plugin name="Version" value="com.phonegap.plugins.Version"/&gt;
 
