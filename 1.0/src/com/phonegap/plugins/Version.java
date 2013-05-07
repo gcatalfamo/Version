@@ -1,43 +1,49 @@
-package com.phonegap.plugins;
+package org.apache.cordova.plugin.Version;
 
 import org.json.JSONArray;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import org.apache.cordova.api.Plugin;
+
+import org.apache.cordova.api.CallbackContext;
+import org.apache.cordova.api.CordovaPlugin;
 import org.apache.cordova.api.PluginResult;
 import org.apache.cordova.api.PluginResult.Status;
 
-public class Version extends Plugin {
+public class Version extends CordovaPlugin {
 
     public final String ACTION_GET_VERSION_NAME = "GetVersionName";
     public final String ACTION_GET_VERSION_CODE = "GetVersionCode";
 
     @Override
-    public PluginResult execute(String action, JSONArray args, String callbackId) {
-        PluginResult result = new PluginResult(Status.INVALID_ACTION);
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+        boolean result = false;
         PackageManager packageManager = this.cordova.getActivity().getPackageManager();
         if(action.equals(ACTION_GET_VERSION_CODE)) {
             try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(this.cordova.getContext().getPackageName(), 0);
-                result = new PluginResult(Status.OK, packageInfo.versionCode);
+                PackageInfo packageInfo = packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0);
+                result = true;
+                callbackContext.success(packageInfo.versionCode);
             }
             catch (NameNotFoundException nnfe) {
-                result = new PluginResult(Status.ERROR, nnfe.getMessage());
+                result = false;
+                callbackContext.success(nnfe.getMessage());
             }
         }
-		else if(action.equals(ACTION_GET_VERSION_NAME)) {
-			try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(this.cordova.getContext().getPackageName(), 0);
-                result = new PluginResult(Status.OK, packageInfo.versionName);
+        else if(action.equals(ACTION_GET_VERSION_NAME)) {
+            try {
+                PackageInfo packageInfo = packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0);
+                result = true;
+                callbackContext.success(packageInfo.versionName);
             }
             catch (NameNotFoundException nnfe) {
-                result = new PluginResult(Status.ERROR, nnfe.getMessage());
+                result = false;
+                callbackContext.success(nnfe.getMessage());
             }
-		
-		}
-
+        
+        }
+        
         return result;
     }
 }
