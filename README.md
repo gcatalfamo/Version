@@ -17,6 +17,8 @@ Using this plugin requires [Android PhoneGap](http://github.com/phonegap/phonega
 
     &lt;plugin name="Version" value="com.phonegap.plugins.Version"/&gt;
 
+    CAUTION: Using PhoneGap ≥ 2.0 (aka Cordova) you have to add this line into res/xml/config.xml in the &lt;plugins&lt;-section. The plugins.xml is no longer supported. The plugins are all located in the config.xml
+
 ## Using the plugin ##
 
 The plugin creates the object `window.plugins.version`.  To use, call one of the following, available methods:
@@ -50,7 +52,11 @@ The plugin creates the object `window.plugins.version`.  To use, call one of the
 
 ## RELEASE NOTES ##
 
-### March 3nd, 2012 ###
+### May 8th, 2013 ###
+
+* Update to Cordova 2.7
+
+### March 3rd, 2012 ###
 
 * Initial release
 
