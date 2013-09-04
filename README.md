@@ -1,6 +1,12 @@
 # Version plugin for Phonegap #
 
 Version allows you to get, display and use the version name and version code of your PhoneGap application.
+This is for Cordova 2.x. Use the version at https://github.com/chrisekelley/Version for newer (3.x) versions of Cordova/Phonegap.
+
+This plugin was born after asking (and answering) this StackOverflow question:
+http://stackoverflow.com/questions/15178468/phonegap-android-get-the-app-version-code
+
+If you find this plugin useful, feel free to upvote the question so that more people will find it.
 
 ## Adding the Plugin to your project ##
 
